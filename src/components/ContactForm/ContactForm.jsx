@@ -1,30 +1,37 @@
 import styles from './ContactForm.module.css'
-import { Component } from "react";
-export class ContactForm extends Component {
-    
-    state = {
-        name: '',
-        number:''
-    }
+import { useState } from "react";
+export const  ContactForm =(props)=> {
+    const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
 
-  handleInputChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        if (name === 'name') {
+           setName(value); 
+        }if (name === 'number') {
+           setNumber(value); 
+        }
+    
+    
     };
     
-    handelSubmit = e => {
-        e.preventDefault()
-        const { name, number } = this.state
-        this.props.onAddContact(name, number);
+ const    handelSubmit = e => {
+     e.preventDefault()
+     
+   
+        props.onAddContact(name, number);
       
-        this.setState({ name: '', number:''})
+     setName('');
+     setNumber ('')
     }
-    render() {
-    const { name, number } = this.state
+    
+   
         return <>
       
             
         <h1>Phonebook</h1>
-<form  className={styles.form} onSubmit ={this.handelSubmit}>
+<form  className={styles.form} onSubmit ={handelSubmit}>
          <p className={styles.text}>Name</p>
       <input
       type="text"
@@ -34,7 +41,7 @@ export class ContactForm extends Component {
       required
      value={name}
             
-                    onChange={this.handleInputChange}
+                    onChange={handleInputChange}
                   
             />
      <p className={styles.text}>Nomber</p>
@@ -45,12 +52,10 @@ export class ContactForm extends Component {
       title="Phone number must be in the format 123-45-7 or 123457"
                 required
                 value={number}
-                onChange={this.handleInputChange}
+                onChange={handleInputChange}
                 
       />
       <button className={styles.btn}>Add contact</button>
       </form>
     </>}
    
-}
-
