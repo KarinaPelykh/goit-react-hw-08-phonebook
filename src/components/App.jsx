@@ -5,16 +5,16 @@ import { ContactForm } from "./ContactForm/ContactForm";
 import { Filter } from "./Filter/Filter";
 
 export const App =()=> {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState(()=>{
+    const  contacts  = JSON.parse(window.localStorage.getItem('contacts'));
+    if (contacts) {
+      return  contacts ;
+		}else{
+      return [];
+    }
+  }); 
   const [filter, setFilter] = useState('');
 
-useEffect(() => {
-    let contacts  = JSON.parse(window.localStorage.getItem('contacts'));
-    if (contacts) {
-      setContacts( contacts )
-		}
-  }, [])
-  
 useEffect(() => {
   window.localStorage.setItem('contacts', JSON.stringify(contacts))
  }, [contacts])
