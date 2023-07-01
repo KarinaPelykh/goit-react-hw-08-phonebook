@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-export const Filter = ({ onInputSearchName, value}) => {
+export const Filter = ({onInputSearchName, value}) => {
    
      const handelSubmit = e => {
      e.prevenDefault()

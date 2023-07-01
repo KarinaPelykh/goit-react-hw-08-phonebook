@@ -58,7 +58,7 @@ const filteredContacts = contacts.filter(contact =>
           onDeleteContact={handelDeleteContact}
           contacts={filteredContacts}
         />
-      </div>
+        </div>
     );
   }
 
