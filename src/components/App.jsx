@@ -9,7 +9,7 @@ export const App =()=> {
     const  contacts  = JSON.parse(window.localStorage.getItem('contacts'));
     if (contacts) {
       return  contacts ;
-		}else{
+		}else {
       return [];
     }
   }); 
