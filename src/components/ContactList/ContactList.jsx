@@ -1,19 +1,24 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 export const ContactList = ({ contacts = [], onDeleteContact }) => {
-  return <>
-    <ul>
-      {
-        contacts.map(item =>
-          <li key={item.id}>{`${item.name}:${item.number}`}
-            <button onClick={() => { onDeleteContact(item.id) }}>Delete</button>
-              
+  return (
+    <>
+      <ul>
+        {contacts.map(item => (
+          <li key={item.id}>
+            {`${item.name}:${item.number}`}
+            <button
+              onClick={() => {
+                onDeleteContact(item.id);
+              }}
+            >
+              Delete
+            </button>
           </li>
-        )
-      }
-    </ul>
-   
-  </>
-}; 
+        ))}
+      </ul>
+    </>
+  );
+};
 
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
@@ -24,19 +29,4 @@ ContactList.propTypes = {
     })
   ),
   onDeleteContact: PropTypes.func,
- 
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
