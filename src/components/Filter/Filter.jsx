@@ -1,22 +1,34 @@
 import PropTypes from 'prop-types';
-export const Filter = ({ onInputSearchName, value }) => {
-  const handelSubmit = e => {
-    e.prevenDefault();
-    onInputSearchName('');
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addFilter } from 'redux/filterSlice';
+import { selectContacts } from 'redux/selectors';
+
+export const Filter = () => {
+  const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts);
+
+  const [filter, setFilter] = useState('');
+
+  const handleInputSearchName = e => {
+    const { value } = e.target;
+    setFilter(value);
+    dispatch(addFilter(value));
   };
+  const filteredContacts = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
 
   return (
     <>
       <h2>Contacts</h2>
       <p>Find contacts by name</p>
       <input
-        onSubmit={handelSubmit}
+        filter={filteredContacts}
         type="text"
         name="name"
-        value={value}
-        onChange={e => {
-          onInputSearchName(e.target.value);
-        }}
+        value={filter}
+        onChange={handleInputSearchName}
       />
     </>
   );
