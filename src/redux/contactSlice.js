@@ -19,13 +19,11 @@ export const contactSlice = createSlice({
           },
         };
       },
-      deleteContact(state, { payload }) {
-        state.contacts = state.contacts.filter(
-          contact => contact.id !== payload
-        );
-      },
+    },
+    deleteContact(state, { payload }) {
+      state.contacts = state.contacts.filter(contact => contact.id !== payload);
     },
   },
 });
 export const { addContact, deleteContact } = contactSlice.actions;
-export const contactReduser = contactSlice.reducer;
+export const contactReducer = contactSlice.reducer;

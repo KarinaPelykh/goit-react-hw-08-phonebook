@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/contactSlice';
 import { selectContacts, selectorFilter } from 'redux/selectors';
@@ -11,18 +12,16 @@ export const ContactList = () => {
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
-
-  const filterContact = filteredContacts();
-  const handleDeleteContact = id => {
+  const handelDeleteContact = id => {
     dispatch(deleteContact(id));
   };
   return (
     <>
       <ul>
-        {filterContact.map(item => (
+        {filteredContacts.map(item => (
           <li key={item.id}>
             {`${item.name}:${item.number}`}
-            <button onClick={() => handleDeleteContact(item.id)}>Delete</button>
+            <button onClick={() => handelDeleteContact(item.id)}>Delete</button>
           </li>
         ))}
       </ul>

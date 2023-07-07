@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFilter } from 'redux/filterSlice';
@@ -7,7 +6,6 @@ import { selectContacts } from 'redux/selectors';
 export const Filter = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-
   const [filter, setFilter] = useState('');
 
   const handleInputSearchName = e => {
@@ -32,8 +30,4 @@ export const Filter = () => {
       />
     </>
   );
-};
-Filter.propTypes = {
-  onInputSearchName: PropTypes.func,
-  value: PropTypes.string,
 };
