@@ -2,11 +2,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './ContactForm.module.css';
 import { useState } from 'react';
 import { selectContacts } from 'redux/selectors';
-import { addContact } from 'redux/contactSlice';
+// import { addContact } from 'redux/contactSlice';
+import { addContactThunk } from 'redux/operations';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setPhone] = useState('');
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
@@ -15,8 +16,8 @@ export const ContactForm = () => {
     if (name === 'name') {
       setName(value);
     }
-    if (name === 'number') {
-      setNumber(value);
+    if (name === 'phone') {
+      setPhone(value);
     }
   };
 
@@ -31,9 +32,9 @@ export const ContactForm = () => {
       return;
     }
 
-    dispatch(addContact(name, number));
+    dispatch(addContactThunk(name, phone));
     setName('');
-    setNumber('');
+    setPhone('');
   };
 
   return (
@@ -57,7 +58,7 @@ export const ContactForm = () => {
           pattern="^\d{3}(-?\d{2}){1,2}$"
           title="Phone number must be in the format 123-45-7 or 123457"
           required
-          value={number}
+          value={phone}
           onChange={handleInputChange}
         />
         <button className={styles.btn}>Add contact</button>

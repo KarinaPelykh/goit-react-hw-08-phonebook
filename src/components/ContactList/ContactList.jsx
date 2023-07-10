@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from 'redux/contactSlice';
+// import { deleteContact } from 'redux/contactSlice';
+import { deleteContactThunk } from 'redux/operations';
 import { selectContacts, selectorFilter } from 'redux/selectors';
 
 export const ContactList = () => {
@@ -13,14 +14,15 @@ export const ContactList = () => {
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
   const handelDeleteContact = id => {
-    dispatch(deleteContact(id));
+    dispatch(deleteContactThunk(id));
   };
+
   return (
     <>
       <ul>
         {filteredContacts.map(item => (
           <li key={item.id}>
-            {`${item.name}:${item.number}`}
+            {`${item.name}:${item.phone}`}
             <button onClick={() => handelDeleteContact(item.id)}>Delete</button>
           </li>
         ))}
