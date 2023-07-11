@@ -27,24 +27,16 @@ export const contactSlice = createSlice({
     builder
       .addCase(fetchContactsThunk.fulfilled, (state, action) => {
         state.contacts = action.payload;
-        state.isLoading = true;
+        state.isLoading = false;
       })
       .addCase(addContactThunk.fulfilled, (state, action) => {
         state.contacts.push(action.payload);
         state.isLoading = false;
       })
-      // .addCase(deleteContactThunk.fulfilled, (state, action) => {
-      //   state.contacts = state.contacts.filter(
-      //     contact => contact.id !== action.payload
-      //   );
-      // })
-
       .addCase(deleteContactThunk.fulfilled, (state, action) => {
-        const index = state.contacts.findIndex(
-          task => task.id === action.payload.id
+        state.contacts = state.contacts.filter(
+          contact => contact.id !== action.payload
         );
-        state.contacts.splice(index, 1);
-        state.isLoading = false;
       })
 
       .addMatcher(action => action.type.endsWith('/pending'), pending)
