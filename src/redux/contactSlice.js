@@ -33,10 +33,18 @@ export const contactSlice = createSlice({
         state.contacts.push(action.payload);
         state.isLoading = false;
       })
+      // .addCase(deleteContactThunk.fulfilled, (state, action) => {
+      //   state.contacts = state.contacts.filter(
+      //     contact => contact.id !== action.payload
+      //   );
+      // })
+
       .addCase(deleteContactThunk.fulfilled, (state, action) => {
-        state.contacts = state.contacts.filter(
-          contact => contact.id !== action.payload
+        const index = state.contacts.findIndex(
+          task => task.id === action.payload.id
         );
+        state.contacts.splice(index, 1);
+        state.isLoading = false;
       })
 
       .addMatcher(action => action.type.endsWith('/pending'), pending)

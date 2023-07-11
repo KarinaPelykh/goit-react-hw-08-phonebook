@@ -7,7 +7,7 @@ import { addContactThunk } from 'redux/operations';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
@@ -16,25 +16,25 @@ export const ContactForm = () => {
     if (name === 'name') {
       setName(value);
     }
-    if (name === 'phone') {
-      setPhone(value);
+    if (name === 'number') {
+      setNumber(value);
     }
   };
 
   const handelSubmit = e => {
     e.preventDefault();
 
-    const existingContact = contacts.find(
-      contact => contact.name.toLowerCase() === name.toLowerCase()
-    );
+    const existingContact = contacts.find(contact => {
+      return contact.name.toLowerCase() === name.toLowerCase();
+    });
     if (existingContact) {
       alert(`${name} is already in the contacts!`);
       return;
     }
 
-    dispatch(addContactThunk(name, phone));
+    dispatch(addContactThunk({ name, phone: number }));
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   return (
@@ -58,7 +58,7 @@ export const ContactForm = () => {
           pattern="^\d{3}(-?\d{2}){1,2}$"
           title="Phone number must be in the format 123-45-7 or 123457"
           required
-          value={phone}
+          value={number}
           onChange={handleInputChange}
         />
         <button className={styles.btn}>Add contact</button>
