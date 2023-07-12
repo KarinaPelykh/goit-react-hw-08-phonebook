@@ -1,0 +1,21 @@
+.formRRegisteregester {
+  border: 1px solid black;
+  margin: 150px auto;
+  background-color: aqua;
+  width: 400px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+.inputRegister {
+  padding: 10px;
+  margin: auto;
+}
+.btn {
+  display: flex;
+  margin: auto;
+  width: 50px;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,28 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: darkslategray;
+}
+
+.nav {
+  padding: 10px 20px;
+}
+.list {
+  padding: 0;
+  display: flex;
+  list-style: none;
+}
+
+a {
+  color: aliceblue;
+}
+.item {
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: auto;
+}
+/* .itemlist {
+  margin-right: 20px;
+} */
