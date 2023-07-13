@@ -1,0 +1,14 @@
+.list {
+  padding: 0;
+  display: flex;
+  list-style: none;
+}
+
+a {
+  color: aliceblue;
+}
+.item {
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: auto;
+}

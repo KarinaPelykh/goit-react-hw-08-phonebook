@@ -1,29 +1,27 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './Navigation.module.css';
+
+import { UserMenu } from 'components/UserMenu/UserMenu';
+import { useSelector } from 'react-redux';
+import { selctorlogged } from 'redux/auth/selector';
+import { AuthNav } from 'components/AuthNav/AuthNav';
 export const Navigation = () => {
+  const isLoggedIn = useSelector(selctorlogged);
+  console.log(isLoggedIn);
   return (
     <>
-      <header className={styles.header}>
-        <nav className={styles.nav}>
-          <ul className={styles.list}>
-            <li className={styles.item}>
-              <Link to="/">Home</Link>
-            </li>
-            <li className={styles.item}>
-              <Link to="/contacts">Contact</Link>
-            </li>
-            <li className={styles.item}>
-              <Link to="/login">Login</Link>
-            </li>
-            <li className={styles.item}>
-              <Link to="/register">Register</Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
-      <div>
-        <Outlet />
-      </div>
+      <ul
+        style={{ display: 'flex', listStyle: 'none', marginRight: '30px' }}
+        className={styles.list}
+      >
+        <li style={{ marginRight: '30px' }} className={styles.item}>
+          <Link to="/">Home</Link>
+        </li>
+        <li className={styles.item}>
+          <Link to="/contacts">Contact</Link>
+        </li>
+      </ul>
+      <div>{isLoggedIn ? <UserMenu /> : <AuthNav />}</div>
     </>
   );
 };

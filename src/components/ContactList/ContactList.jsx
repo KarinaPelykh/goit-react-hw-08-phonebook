@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { feathauthRegisters } from 'redux/auth/authOperation';
 import { deleteContactThunk, fetchContactsThunk } from 'redux/operations';
 import { selectFilter } from 'redux/selectors';
 
@@ -12,7 +11,6 @@ export const ContactList = () => {
   const filteredContacts = useSelector(selectFilter);
 
   useEffect(() => {
-    dispatch(feathauthRegisters());
     dispatch(fetchContactsThunk());
   }, [dispatch]);
 
