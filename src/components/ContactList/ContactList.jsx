@@ -19,7 +19,7 @@ export const ContactList = () => {
       <ul>
         {filteredContacts.map(item => (
           <li key={item.id}>
-            {`${item.name}:${item.phone}`}
+            {`${item.name}:${item.number}`}
             <button onClick={() => dispatch(deleteContactThunk(item.id))}>
               Delete
             </button>

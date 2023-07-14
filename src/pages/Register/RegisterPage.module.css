@@ -1,7 +1,7 @@
 .formRRegisteregester {
   border: 1px solid black;
   margin: 150px auto;
-  background-color: aqua;
+  background-color: rgb(66, 72, 72);
   width: 400px;
   height: 300px;
   display: flex;

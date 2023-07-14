@@ -31,7 +31,7 @@ export const ContactForm = () => {
       return;
     }
 
-    dispatch(addContactThunk({ name, phone: number }));
+    dispatch(addContactThunk({ name, number }));
     setName('');
     setNumber('');
   };

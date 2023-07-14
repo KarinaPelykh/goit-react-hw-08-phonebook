@@ -15,9 +15,11 @@ export const Navigation = () => {
         className={styles.list}
       >
         <li style={{ marginRight: '30px' }} className={styles.item}>
+          {/* {isLoggedIn && <Link to="/">Home</Link>} */}
           <Link to="/">Home</Link>
         </li>
         <li className={styles.item}>
+          {/* {isLoggedIn && <Link to="/contacts">Contact</Link>} */}
           <Link to="/contacts">Contact</Link>
         </li>
       </ul>
