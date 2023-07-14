@@ -6,7 +6,14 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { LoginPage } from 'pages/Login/LoginPage';
 import { RegisterPage } from 'pages/Register/RegisterPage';
 import { Contact } from './Contact/Contacts';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { refreshThunk } from 'redux/auth/authOperation';
 export const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(refreshThunk());
+  }, [dispatch]);
   return (
     <BrowserRouter>
       <Routes>

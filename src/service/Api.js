@@ -4,7 +4,7 @@ const inctance = axios.create({
   baseURL: 'https://connections-api.herokuapp.com',
 });
 
-const setAuthHeader = token => {
+export const setAuthHeader = token => {
   inctance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
@@ -29,7 +29,7 @@ export const Logout = async () => {
 };
 
 export const refresh = async () => {
-  const { data } = await inctance.get('/users​/current');
+  const { data } = await inctance.get('/users/current');
   return data;
 };
 

@@ -5,10 +5,12 @@ import { selctorUser } from 'redux/auth/selector';
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const user = useSelector(selctorUser);
-  console.log();
+  console.log(user);
+
   return (
     <>
       <div style={{ display: 'flex' }}>
+        <p>Welcome {user.name}</p>
         <p>{user.email}</p>
         <button onClick={() => dispatch(authLogout())}>Logout</button>
       </div>
