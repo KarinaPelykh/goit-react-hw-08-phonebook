@@ -1,5 +1,5 @@
 import { Layout } from './Layout/Layout';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { LoginPage } from 'pages/Login/LoginPage';
 import { RegisterPage } from 'pages/Register/RegisterPage';
 import { Contact } from './Contact/Contacts';
@@ -21,48 +21,38 @@ export const App = () => {
   return isRefreshing ? (
     <p>Refreshing...</p>
   ) : (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route
-            index
-            element={
-              <RestrictedRout
-                restrictetTo="/contacts"
-                component={<HomePage />}
-              />
-            }
-          />
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<RestrictedRout component={<HomePage />} />} />
 
-          <Route
-            path="contacts"
-            element={
-              <PrivateRoute restrictetTo="/login" component={<Contact />} />
-            }
-          />
+        <Route
+          path="contacts"
+          element={
+            <PrivateRoute restrictetTo="/login" component={<Contact />} />
+          }
+        />
 
-          <Route
-            path="login"
-            element={
-              <RestrictedRout
-                restrictetTo="/contacts"
-                component={<LoginPage />}
-              />
-            }
-          />
+        <Route
+          path="login"
+          element={
+            <RestrictedRout
+              restrictetTo="/contacts"
+              component={<LoginPage />}
+            />
+          }
+        />
 
-          <Route
-            path="register"
-            element={
-              <RestrictedRout
-                restrictetTo="/contacts"
-                component={<RegisterPage />}
-              />
-            }
-          />
-        </Route>
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </BrowserRouter>
+        <Route
+          path="register"
+          element={
+            <RestrictedRout
+              restrictetTo="/contacts"
+              component={<RegisterPage />}
+            />
+          }
+        />
+      </Route>
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   );
 };
