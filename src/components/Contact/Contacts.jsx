@@ -4,7 +4,12 @@ import { Filter } from 'components/Filter/Filter';
 
 export const Contact = () => {
   return (
-    <div style={{ margin: ' 120px' }}>
+    <div
+      style={{
+        marginLeft: '300px',
+        marginTop: ' 110px',
+      }}
+    >
       <ContactForm />
       <Filter />
       <ContactList />

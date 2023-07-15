@@ -3,9 +3,17 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: darkslategray;
 }
 
 .nav {
+  margin: 0 auto;
+  width: 900px;
   padding: 10px 20px;
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.716);
+  /* background-color: rgba(4, 3, 32, 0.26); */
+  border-bottom-left-radius: 25px;
+  border-top-right-radius: 20px;
+  /* background-color: rgba(78, 77, 122, 0.26); */
+  background-color: rgb(255, 255, 255);
 }

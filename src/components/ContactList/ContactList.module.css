@@ -1,0 +1,36 @@
+.itemContact {
+  width: 400px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.listContact {
+  padding: 0;
+}
+.btnContact {
+  display: flex;
+  margin: 0;
+
+  justify-content: center;
+  text-align: center;
+  width: 80px;
+  margin-top: 10px;
+  color: white;
+  margin-bottom: 10px;
+  background: linear-gradient(246.35deg, #879acf 15.24%, #181666 83.9%);
+  margin-left: 10px;
+}
+.btnContact:hover,
+.btnContact:focus {
+  background: linear-gradient(246.35deg, #181666 15.24%, #879acf 83.9%);
+}
+.userContact {
+  width: 40px;
+}

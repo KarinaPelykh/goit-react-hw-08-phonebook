@@ -1,0 +1,21 @@
+.name {
+  font-family: cursive;
+  margin-right: 20px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  width: 60px;
+  margin-top: 10px;
+  color: white;
+  margin-bottom: 10px;
+  background: linear-gradient(246.35deg, #879acf 15.24%, #181666 83.9%);
+}
+
+.btn:hover,
+.btn:focus {
+  background: linear-gradient(246.35deg, #181666 15.24%, #879acf 83.9%);
+}

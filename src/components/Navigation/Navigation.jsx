@@ -11,16 +11,18 @@ export const Navigation = () => {
   return (
     <>
       <ul
-        style={{ display: 'flex', listStyle: 'none', marginRight: '30px' }}
+        style={{ display: 'flex', listStyle: 'none', marginRight: 'auto' }}
         className={styles.list}
       >
-        <li style={{ marginRight: '30px' }} className={styles.item}>
-          {/* {isLoggedIn && <Link to="/">Home</Link>} */}
+        <li
+          style={{ marginRight: '30px', listStyle: 'none' }}
+          className={styles.item}
+        >
           <Link to="/">Home</Link>
         </li>
         <li className={styles.item}>
-          {/* {isLoggedIn && <Link to="/contacts">Contact</Link>} */}
-          <Link to="/contacts">Contact</Link>
+          {isLoggedIn && <Link to="/contacts">Contact</Link>}
+          {/* <Link to="/contacts">Contact</Link> */}
         </li>
       </ul>
       <div>{isLoggedIn ? <UserMenu /> : <AuthNav />}</div>

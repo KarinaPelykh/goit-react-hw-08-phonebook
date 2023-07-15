@@ -12,7 +12,13 @@ export const Filter = () => {
   return (
     <>
       <h2>Contacts</h2>
-      <p>Find contacts by name</p>
+      <p
+        style={{
+          color: 'white',
+        }}
+      >
+        Find contactsby name
+      </p>
       <input type="text" name="name" onChange={handleInputSearchName} />
     </>
   );

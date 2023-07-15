@@ -1,19 +1,33 @@
-.form{
+.form {
   width: 400px;
- 
+  background-color: white;
   border: 1px solid #000;
+  border-radius: 10px;
   padding: 10px;
 }
 
-.btn{
-    display: flex;
-    margin: 0;
-    margin-top: 20px;
+.btn {
+  display: flex;
+  margin: 0;
+  margin-top: 20px;
+  justify-content: center;
+  text-align: center;
+  width: 100px;
+  margin-top: 10px;
+  color: white;
+  margin-bottom: 10px;
+  background: linear-gradient(246.35deg, #879acf 15.24%, #181666 83.9%);
 }
-.text{
-    margin-bottom: 5px;
-    margin-top: 20px;
+
+.btn:hover,
+.btn:focus {
+  background: linear-gradient(246.35deg, #181666 15.24%, #879acf 83.9%);
 }
-input{
-border: 1px solid #e7e9fc;
+
+.text {
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+input {
+  border: 1px solid #e7e9fc;
 }

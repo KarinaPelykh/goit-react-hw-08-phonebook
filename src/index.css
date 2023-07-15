@@ -7,6 +7,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: linear-gradient(246.35deg, #879acf 15.24%, #181666 83.9%);
+  background-image: url('./components/images/pexels-photo-4334092.jpeg');
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 code {

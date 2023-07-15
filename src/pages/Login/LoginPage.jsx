@@ -16,9 +16,9 @@ export const LoginPage = () => {
   };
   return (
     <form onSubmit={onSubmit} className={styles.form}>
-      {/* <label class="modal-form-lable" for="email">
+      <label className={styles.lable} for="email">
         Email
-      </label> */}
+      </label>
       <input
         onChange={handelChanges}
         className={styles.input}
@@ -26,9 +26,9 @@ export const LoginPage = () => {
         name="email"
         placeholder="email"
       />
-      {/* <label class="modal-form-lable" for="email">
+      <label className={styles.lable} for="email">
         Password
-      </label> */}
+      </label>
       <input
         onChange={handelChanges}
         className={styles.input}

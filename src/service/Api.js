@@ -29,7 +29,7 @@ export const Logout = async () => {
 };
 
 export const refresh = async () => {
-  const { data } = await inctance.get('/users/current');
+  const data = await inctance.get('/users/current');
   return data;
 };
 

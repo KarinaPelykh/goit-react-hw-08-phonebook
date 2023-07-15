@@ -2,13 +2,31 @@
   padding: 0;
   display: flex;
   list-style: none;
+  margin-right: auto;
 }
 
 a {
-  color: aliceblue;
+  color: black;
+  font-size: 17px;
+  text-decoration: none;
 }
+a:hover,
+a:focus {
+  color: white;
+
+  width: auto;
+  border: 1px solid black;
+  border-radius: 3px;
+  background: linear-gradient(246.35deg, #181666 15.24%, #879acf 83.9%);
+}
+
+.lable {
+  margin-left: 60px;
+  color: white;
+}
+
 .item {
   display: flex;
   justify-content: space-evenly;
-  margin-right: auto;
+  margin-right: 20px;
 }

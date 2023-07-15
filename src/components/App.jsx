@@ -7,6 +7,9 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshThunk } from 'redux/auth/authOperation';
 import { selectRefresh } from 'redux/auth/selector';
+import { HomePage } from 'pages/HomePage/HomePage';
+import { PrivateRoute } from './PrivateRoute/PrivateRoute';
+import { RestrictedRout } from './RestrictedRout/RestrictedRout';
 export const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -21,9 +24,34 @@ export const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="contacts" element={<Contact />} />
-          <Route path="login" element={<LoginPage />} />
-          <Route path="register" element={<RegisterPage />} />
+          <Route index element={<HomePage />} />
+
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute restrictetTo="/login" component={<Contact />} />
+            }
+          />
+
+          <Route
+            path="login"
+            element={
+              <RestrictedRout
+                restrictetTo="/contacts"
+                component={<LoginPage />}
+              />
+            }
+          />
+
+          <Route
+            path="register"
+            element={
+              <RestrictedRout
+                restrictetTo="/contacts"
+                component={<RegisterPage />}
+              />
+            }
+          />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

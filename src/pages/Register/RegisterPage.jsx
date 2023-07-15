@@ -19,6 +19,9 @@ export const RegisterPage = () => {
 
   return (
     <form onSubmit={oSubmit} className={styles.formRRegisteregester}>
+      <label className={styles.lable} for="name">
+        Name
+      </label>
       <input
         className={styles.inputRegister}
         type="name"
@@ -26,7 +29,9 @@ export const RegisterPage = () => {
         placeholder="name"
         required
       />
-
+      <label className={styles.lable} for="email">
+        Email
+      </label>
       <input
         className={styles.inputRegister}
         type="email"
@@ -34,7 +39,9 @@ export const RegisterPage = () => {
         placeholder="email"
         required
       />
-
+      <label className={styles.lable} for="password">
+        Password
+      </label>
       <input
         className={styles.inputRegister}
         type="password"
