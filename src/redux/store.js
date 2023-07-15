@@ -12,7 +12,7 @@ import storage from 'redux-persist/lib/storage';
 import { configureStore } from '@reduxjs/toolkit';
 import { contactReducer } from './contactSlice';
 import { filterReducer } from './filterSlice';
-import { authSlice } from './auth/authSlice';
+import { authReducer } from './auth/authSlice';
 
 const persistConfig = {
   key: 'todos',
@@ -20,7 +20,7 @@ const persistConfig = {
   whitelist: ['token'],
 };
 
-const persistedReducer = persistReducer(persistConfig, authSlice.reducer);
+const persistedReducer = persistReducer(persistConfig, authReducer);
 
 export const store = configureStore({
   reducer: {

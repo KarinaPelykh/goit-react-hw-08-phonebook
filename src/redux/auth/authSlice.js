@@ -45,15 +45,16 @@ export const authSlice = createSlice({
         state.user = { name: null, email: null };
         state.token = null;
       })
+      .addCase(refreshThunk.pending, state => {
+        state.isRefreshing = true;
+      })
       .addCase(refreshThunk.fulfilled, (state, action) => {
         state.isLoggedIn = true;
         state.isRefreshing = false;
         state.user = action.payload;
       })
-      .addCase(refreshThunk.pending, (state, action) => {
-        state.isRefreshing = true;
-      })
-      .addCase(refreshThunk.rejected, (state, action) => {
+
+      .addCase(refreshThunk.rejected, state => {
         state.isRefreshing = false;
       })
 
@@ -72,4 +73,4 @@ export const authSlice = createSlice({
   },
 });
 
-export const authReduser = authSlice.reducer;
+export const authReducer = authSlice.reducer;

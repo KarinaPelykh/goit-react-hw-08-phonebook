@@ -1,6 +1,3 @@
-// import { ContactList } from './ContactList/ContactList';
-// import { ContactForm } from './ContactForm/ContactForm';
-// import { Filter } from './Filter/Filter';
 import { Layout } from './Layout/Layout';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { LoginPage } from 'pages/Login/LoginPage';

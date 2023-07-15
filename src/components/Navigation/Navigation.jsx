@@ -7,7 +7,7 @@ import { selctorlogged } from 'redux/auth/selector';
 import { AuthNav } from 'components/AuthNav/AuthNav';
 export const Navigation = () => {
   const isLoggedIn = useSelector(selctorlogged);
-  console.log(isLoggedIn);
+
   return (
     <>
       <ul
