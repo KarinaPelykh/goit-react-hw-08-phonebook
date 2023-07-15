@@ -24,7 +24,15 @@ export const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
+          <Route
+            index
+            element={
+              <RestrictedRout
+                restrictetTo="/contacts"
+                component={<HomePage />}
+              />
+            }
+          />
 
           <Route
             path="contacts"

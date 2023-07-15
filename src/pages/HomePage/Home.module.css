@@ -1,13 +1,10 @@
-/* .text {
-  width: 500px;
-  font-size: 34px;
+.text {
+  margin-top: 300px;
+  margin-left: 400px;
   color: white;
-  margin-left: 500px;
-
-  display: flex;
-  text-align: center;
-  margin-bottom: 0;
-} */
+  font-size: 24px;
+  font-weight: 800;
+}
 
 .images {
   width: 100%;
