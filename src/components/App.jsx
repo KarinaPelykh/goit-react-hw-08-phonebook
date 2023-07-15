@@ -4,14 +4,20 @@ import { LoginPage } from 'pages/Login/LoginPage';
 import { RegisterPage } from 'pages/Register/RegisterPage';
 import { Contact } from './Contact/Contacts';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { refreshThunk } from 'redux/auth/authOperation';
+import { selectRefresh } from 'redux/auth/selector';
 export const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(refreshThunk());
   }, [dispatch]);
-  return (
+
+  const isRefreshing = useSelector(selectRefresh);
+
+  return isRefreshing ? (
+    <p>Refreshing...</p>
+  ) : (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
